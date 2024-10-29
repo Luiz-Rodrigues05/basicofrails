@@ -17,7 +17,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0' # Use a compatible version for Rubocop and RSpec
+          ruby-version: '3.3.5' # Use a compatible version for Rubocop and RSpec
 
       - name: Install dependencies
         run: |
