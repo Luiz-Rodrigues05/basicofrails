@@ -1,0 +1,30 @@
+name: CI Checks
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+      - release/*
+
+jobs:
+  lint_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0' # Use a compatible version for Rubocop and RSpec
+
+      - name: Install dependencies
+        run: |
+          bundle install
+
+      - name: Run Rubocop
+        run: bundle exec rubocop
+          
+    #   - name: Run RSpec tests
+    #     run: bundle exec rspec
