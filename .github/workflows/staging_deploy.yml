@@ -13,6 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: List files
+        run: |
+          ls -la  # List all files to ensure Dockerfile.production is present
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
@@ -26,10 +30,6 @@ jobs:
         run: |
           docker build -t ${{ secrets.DOCKER_REPOSITORY }} -f Dockerfile.production .
 
-      - name: Tag Docker image
-        run: |
-            docker tag ${{ secrets.DOCKER_REPOSITORY }} ${{ secrets.DOCKER_REPOSITORY }}:latest .
-
       - name: Push Docker image
         run: |
           docker push ${{ secrets.DOCKER_REPOSITORY }}
@@ -38,7 +38,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.STAGING_SERVER_IP }}
-          username: 'viitra-ieducar' # replace with your staging server username
+          username: 'viitra-ieducar'  # Replace with your staging server username
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
