@@ -13,6 +13,4 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "home/index" => "home#index"
-  get "home/index" => "home#index"
-  get "home/index" => "home#index"
 end

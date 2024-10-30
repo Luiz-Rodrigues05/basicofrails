@@ -38,6 +38,5 @@ jobs:
           password: ${{ secrets.STAGING_SERVER_PASSWORD }}  # Use the stored password secret
           port: 22
           script: |
-            ls -la ${{ secrets.STAGING_SERVER_PATH }}  # List contents to verify the path
             cd ${{ secrets.STAGING_SERVER_PATH }}
             make update
