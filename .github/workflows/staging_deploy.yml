@@ -33,9 +33,9 @@ jobs:
       - name: SSH Commands to Update Staging
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.STAGING_SERVER_IP }}
+          host: ${{ secrets.STAGING_SERVER_HOST }}
           username: 'viitra-ieducar'  # Replace with your staging server username
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          password: ${{ secrets.STAGING_SERVER_PASSWORD }}  # Use the stored password secret
           port: 22
           script: |
             cd ${{ secrets.STAGING_SERVER_PATH }}
