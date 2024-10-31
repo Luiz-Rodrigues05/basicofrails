@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
   get "home/index" => "home#index"
   # good commit
+  # test commit
 end
