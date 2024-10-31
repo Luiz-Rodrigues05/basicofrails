@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get "home/index" => "home#index"
   # good commit
   # bad commit 1
+  # bad commit 2
 end
